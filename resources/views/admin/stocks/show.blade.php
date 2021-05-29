@@ -6,6 +6,7 @@
       <div class="row">
         <page-card title="Detalhes da Entrada de Recursos" size="12" >
           <div class="row">
+            @if($stocks->count() > 0)
             <table class="table table-striped">
               <tbody>
                 <tr>
@@ -41,7 +42,14 @@
                 </tr>
                 @endforeach
               </tbody>
-            </table> 
+            </table>
+            @else
+              <div align="center">
+                <div class="alert alert-warning" role="alert">
+                    Não existem entradas de recursos cadastrados.
+                </div>
+              </div>
+            @endif
             <div class="col-md-12">
               <div class="modal-footer justify-content">
                 <a class="btn btn-outline-info" href="{{route('stocks.index')}}"><i class="fas fa-arrow-left"></i> Voltar</a>                

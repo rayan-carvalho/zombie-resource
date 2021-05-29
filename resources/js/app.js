@@ -27,6 +27,7 @@ Vue.component('page-card', require('./components/PageCard.vue').default);
 Vue.component('table-component', require('./components/Table.vue').default);
 Vue.component('map-component', require('./components/Map.vue').default);
 Vue.component('modal-component', require('./components/Modal.vue').default);
+Vue.component('modal-slot', require('./components/ModalSlot.vue').default);
 
 
 

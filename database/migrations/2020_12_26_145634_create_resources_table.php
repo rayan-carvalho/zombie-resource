@@ -16,8 +16,9 @@ class CreateResourcesTable extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',200);          
-            $table->integer('minimum');    
-            $table->string('image');
+            $table->integer('minimum');   
+            $table->string('amount')->nullable()->default(0);
+            $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

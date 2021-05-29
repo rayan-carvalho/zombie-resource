@@ -16,10 +16,15 @@
               <strong>Nome</strong>
               <p class="text-muted">{{$category->name}}</p>
 
-              <hr>
-
-              <strong>Descrição</strong>
-              <p class="text-muted">{!! $category->description !!}</p>
+              @if($category->description)  
+                <hr>           
+                <strong>Descrição</strong>
+                <p class="text-muted">{!! $category->description !!}</p>           
+              @else
+                <hr>           
+                <strong>Descrição</strong>
+                <p class="text-muted">Sem descrição.</p>  
+              @endif
 
             </div>
 

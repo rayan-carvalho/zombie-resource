@@ -15,10 +15,27 @@
 
               <strong>Nome</strong>
               <p class="text-muted">{{$resource->name}}</p>
-              <hr>           
+              
+              @if($resource->description)  
+                <hr>           
+                <strong>Descrição</strong>
+                <p class="text-muted">{!! $resource->description !!}</p>           
+              @else
+                <hr>           
+                <strong>Descrição</strong>
+                <p class="text-muted">Sem descrição.</p>   
+         
+              @endif
 
-              <strong>Descrição</strong>
-              <p class="text-muted">{!! $resource->description !!}</p>
+              @if($resource->note)  
+                <hr> 
+                <strong>Observações</strong>
+                <p class="text-muted">{!! $resource->note !!}</p>
+                @else
+                <hr>           
+                <strong>Observações</strong>
+                <p class="text-muted">Sem observações.</p>   
+              @endif
 
 
             </div>
@@ -35,7 +52,9 @@
                 <strong>Imagem</strong>
                 <p class="text-muted">
                       @if( $resource->image )
-                            <img class="margin" src="{{url('storage/'.$resource->image)}}"  height="120" width="120">
+                          <img class="margin" src="{{url('storage/'.$resource->image)}}"  height="120" width="120">
+                      @else  
+                          <img class="margin" src="{{url('storage/image-not-found.png')}}"  height="120" width="120">    
                       @endif
                 </p>
 
@@ -66,7 +85,6 @@
     token="{{ csrf_token() }}"
     method="DELETE"
 >
-
 </modal-component>
 @endsection
 

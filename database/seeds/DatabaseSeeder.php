@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Admin\Company;
-use App\Models\Admin\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,5 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {   
         $this->call(UserSeeder::class);  
+        $this->call(CategorySeeder::class);  
+        $this->call(ResourceSeeder::class);  
     }
 }

@@ -54,9 +54,9 @@
           </li>
        
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('stocks.index')}}" {!! Request::segment(2) == 'stocks' ? 'class="nav-link active"' : 'class="nav-link"' !!}>
               <i class="nav-icon fas fa-dolly-flatbed"></i>
-              <p>Estoque</p>
+              <p>Entradas</p>
             </a>
           </li>
 

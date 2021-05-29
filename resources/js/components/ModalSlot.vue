@@ -8,24 +8,13 @@
                         <h4>{{alert}}</h4>                              
                     </div>
                     <div class="modal-body">                    
-                        <input v-if="token" type="hidden" name="_token" v-bind:value="token">
-                        <input v-if="method" type="hidden" name="_method" v-bind:value="method">     
-                            <div class="row" v-if="message">                           
-                                <h2>{{message}}</h2>
-                                <h3 v-if="object"><b>{{object}}</b></h3>                               
-                            </div>
-                            
-                            <slot></slot>                           
-                            <div align="left" v-if="note">
-                                 <br>
-                                <p><code>*{{note}}</code></p>
-                            </div>
+                       <slot></slot>
                     </div>   
                     <div class="modal-footer justify-content-between">       
                         <button type="button" class="btn btn-default " data-dismiss="modal">Fechar</button>
                         <button type="submit" :class="type" v-if="method">{{textButton}}</button>  
                     </div>            
-                </form>
+                </form >
             </div>         
         </div>        
    </div>
@@ -37,7 +26,7 @@
         
 <script>
     export default {
-     props:['name','alert','action','token','method','object','message','note'],  
+     props:['name','alert','action','token','method'],  
      computed:{
         type() {            
             

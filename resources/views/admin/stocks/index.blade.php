@@ -35,11 +35,9 @@
               </tbody>
           </table>
         @else
-          <div align="center">
-            <div class="alert alert-warning" role="alert">
-                Não existem entradas de recursos cadastrados.
-            </div>
-          </div>
+         
+            <div class="alert alert-warning" role="alert">Não existem entradas de recursos cadastradas</div>
+          
         @endif
         </page-card>
       </div>

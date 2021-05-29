@@ -32,6 +32,7 @@ Route::group([
     Route::resource('resources', 'ResourceController');
     Route::resource('categories', 'CategoryController');
     Route::resource('sales', 'SaleController');
+    Route::resource('stocks', 'StockController');
 });
 
 

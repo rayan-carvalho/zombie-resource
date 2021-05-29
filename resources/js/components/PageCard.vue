@@ -6,7 +6,7 @@
                 <h5 class="card-title">{{ title }}</h5> 
             </div>      
              <div v-if="url" class="card-body">
-                <a class="btn btn-outline-info float-left" :href=url ><i class="fa fa-plus"></i> Novo</a>
+                <a class="btn btn-outline-info float-left" :href=url data-toggle="tooltip" data-placement="right" title="Novo(a)"><i class="fa fa-plus"></i></a>
             </div> 
             <div class="card-body">
                  <slot></slot>
@@ -21,7 +21,7 @@
       props:['size','title','url'],
       data() {
         return {
-                classSize: `col-md-${this.size} col-md-${this.size}`,
+                classSize: `col-md-${this.size}`,
                
             } 
       }

@@ -9,6 +9,7 @@ use App\Models\Admin\Category;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\ResourceValidationFormRequest;
 
 
 class ResourceController extends Controller
@@ -25,8 +26,10 @@ class ResourceController extends Controller
             ["title" => "Recursos", "url" => ""]
         ]);
 
-        $resources = Resource::select('id','name','category_id','amount')->get();
-
+        $resources = Resource::select('resources.id','resources.name','categories.name as category','resources.amount')
+                                ->join('categories', 'categories.id', '=', 'resources.category_id')                               
+                                ->get();
+        
         return view('admin.resources.index',compact('resources','breadcrumb'));
     }
 
@@ -55,7 +58,7 @@ class ResourceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ResourceValidationFormRequest $request)
     {
 
         $data = $request->all();   
@@ -127,12 +130,11 @@ class ResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ResourceValidationFormRequest $request, $id)
     {
         $data                 =  $request->all();   
         $resource              =  Resource::where('id',$id)->first(); 
-        $resource->name        =  $data['name'];      
-        $resource->amount      =  $data['amount'];
+        $resource->name        =  $data['name'];    
         $resource->minimum     =  $data['minimum'];
         $resource->category_id =  $data['category_id'];
         $resource->description =  $data['description'];
