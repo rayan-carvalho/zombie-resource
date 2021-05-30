@@ -97,9 +97,9 @@ class ClientController extends Controller
     {
         $breadcrumb = json_encode([
             ["title" => "Home", "url" => route('home.index')],
-            ["title" => "Usuários", "url" => route('clients.index')],
-            ["title" => "Detalhes do Usuário", "url" => route('clients.show',$id)],
-            ["title" => "Editar Usuário", "url" => ""],
+            ["title" => "Clientes", "url" => route('clients.index')],
+            ["title" => "Detalhes do Cliente", "url" => route('clients.show',$id)],
+            ["title" => "Editar Cliente", "url" => ""],
         ]);
 
         $client = Client::findOrFail($id); 
@@ -114,7 +114,7 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClientValidationFormRequest $request, $id)
     {
 
         $client = Client::findOrFail($id);

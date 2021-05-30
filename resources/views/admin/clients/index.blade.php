@@ -2,7 +2,6 @@
 
 @section('content')
 <breadcrumb v-bind:list="{{$breadcrumb}}" title = "Clientes"></breadcrumb>
-
 <section class="content">
   <div class="container-fluid">
       <div class="row">
@@ -10,7 +9,7 @@
          @if($clients->count() > 0)
           <table-component
           v-bind:titles="['Código','Nome','Telefone','WhatsApp']"
-          url="http://localhost:8000/app/clients/"
+          url="{{Request::url().'/'}}"
           model="Client"
           order = "asc"
           records = "{{ $clients }}"

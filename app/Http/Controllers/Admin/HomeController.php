@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Helpers\Helper;
-use Illuminate\Auth\AuthManager;
+use App\Models\Admin\Sale;
+use App\Models\Admin\Stock;
+
 
 
 use Illuminate\Http\Request;
@@ -29,6 +30,8 @@ class HomeController extends Controller
     public function index()
     {
 
-        return view('admin.home.index');
+        $sales  =  Sale::take(5)->get();
+        $stocks  =  Stock::take(5)->get();
+        return view('admin.home.index',compact('sales','stocks'));
     }
 }

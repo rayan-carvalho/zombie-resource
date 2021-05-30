@@ -53,7 +53,7 @@
                 <div class="info-box bg-light">
                   <div class="info-box-content">
                     <span class="info-box-text text-center text-muted">Total de Produtos Recebidos</span>
-                    <span class="info-box-number text-center text-muted mb-0">28</span>
+                    <span class="info-box-number text-center text-muted mb-0">{{ $client->sales()->sum('amount') }}</span>
                   </div>
                 </div>
               </div>
@@ -62,7 +62,7 @@
                 <div class="info-box bg-light">
                   <div class="info-box-content">
                     <span class="info-box-text text-center text-muted">Variedade de Produtos</span>
-                    <span class="info-box-number text-center text-muted mb-0">8</span>
+                    <span class="info-box-number text-center text-muted mb-0">{{ $client->sales()->distinct()->count('resource_id') }}</span>
                   </div>
                 </div>
               </div>

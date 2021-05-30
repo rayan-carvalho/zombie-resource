@@ -23,7 +23,7 @@ class UserController extends Controller
             ["title" => "Usuários", "url" => ""]
         ]);
 
-        $users = User::select('id','name','type')->get();
+        $users = User::select('id','name','phone','mobile')->get();
 
         return view('admin.users.index',compact('users','breadcrumb'));
     }
@@ -53,7 +53,7 @@ class UserController extends Controller
     public function store(UserValidationFormRequest $request)
     {
             $data = $request->all();       
-
+            $data['password'] = bcrypt($data['password']);  
             $user = User::create($data);
 
             if($user){
@@ -84,7 +84,7 @@ class UserController extends Controller
 
         $user = User::find($id);
 
-        return view('admin.users.show',compact('users','breadcrumb'));
+        return view('admin.users.show',compact('user','breadcrumb'));
     }
 
     /**
@@ -102,9 +102,9 @@ class UserController extends Controller
             ["title" => "Editar Usuário", "url" => ""],
         ]);
 
-        $users = User::findOrFail($id); 
+        $user = User::findOrFail($id); 
 
-       return view('admin.users.edit',compact('users','breadcrumb'));
+       return view('admin.users.edit',compact('user','breadcrumb'));
     }
 
     /**
@@ -114,11 +114,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserValidationFormRequest $request, $id)
     {
 
         $user = User::findOrFail($id);
         $data = $request->all();
+        if($data['password'] == null){
+            unset($data['password']);   
+        }else{
+            $data['password'] = bcrypt($data['password']); 
+        }       
         $response = $user->update($data);
 
         if($response){

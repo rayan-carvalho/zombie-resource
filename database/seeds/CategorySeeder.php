@@ -18,13 +18,13 @@ class CategorySeeder extends Seeder
 
         ]);
         Category::create([
-            'name'              => 'Armamento',
-            'description'       => 'Armamento',        
+            'name'              => 'Armamentos',
+            'description'       => 'Armamentos',        
 
         ]);
         Category::create([
-            'name'              => 'Alimento',
-            'description'       => 'Alimento',        
+            'name'              => 'Alimentos',
+            'description'       => 'Alimentos',        
 
         ]);
     }

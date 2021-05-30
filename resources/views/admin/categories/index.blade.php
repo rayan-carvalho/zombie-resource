@@ -10,7 +10,7 @@
          @if($categories->count() > 0)
           <table-component
           v-bind:titles="['Código','Nome']"
-          url="http://localhost:8000/app/categories/"
+          url="{{Request::url().'/'}}"
           order="asc"
           records = "{{$categories}}"
           >

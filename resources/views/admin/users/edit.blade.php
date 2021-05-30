@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Cliente"></breadcrumb>
+<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Usuário"></breadcrumb>
 
 <section class="content">
   <div class="container-fluid">
       <div class="row">
-        <page-card title="Editar Cliente" size="12" >
-            <form role="form" method="POST" action="{{ route('clients.update',$client->id)}}">
+        <page-card title="Editar Usuário" size="12" >
+            <form role="form" method="POST" action="{{ route('users.update',$user->id)}}">
                 {{method_field('PUT')}}
-                @include('admin.clients.form')
+                @include('admin.users.form')
                 <div class="modal-footer justify-content">
-                    <button type="submit" class="btn btn-outline-success" ><i class="fa fa-save"></i> Salvar</button>
-                    <a class="btn btn-outline-info" href="{{route('clients.show',$client->id)}}"><i class="fas fa-arrow-left"></i> Voltar</a>
+                  <a class="btn btn-outline-info" href="{{route('users.show',$user->id)}}"><i class="fas fa-arrow-left"></i> Voltar</a>
+                  <button type="submit" class="btn btn-outline-success" ><i class="fa fa-save"></i> Salvar</button>                    
                 </div>
             </form>
              <br>

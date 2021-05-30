@@ -40,26 +40,26 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{route('categories.index')}}" {!! Request::segment(2) == 'categories' ? 'class="nav-link active"' : 'class="nav-link"' !!}>
-              <i class="nav-icon fas fa-box-tissue"></i>
-              <p>Categorias</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="{{route('resources.index')}}" {!! Request::segment(2) == 'products' ? 'class="nav-link active"' : 'class="nav-link"' !!}>
-              <i class="nav-icon fas fa-boxes"></i>
-              <p>Recursos</p>
-            </a>
-          </li>
-       
-          <li class="nav-item">
             <a href="{{route('stocks.index')}}" {!! Request::segment(2) == 'stocks' ? 'class="nav-link active"' : 'class="nav-link"' !!}>
               <i class="nav-icon fas fa-dolly-flatbed"></i>
               <p>Entradas</p>
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{route('resources.index')}}" {!! Request::segment(2) == 'resources' ? 'class="nav-link active"' : 'class="nav-link"' !!}>
+              <i class="nav-icon fas fa-boxes"></i>
+              <p>Recursos</p>
+            </a>
+          </li>
+       
+          <li class="nav-item">
+            <a href="{{route('categories.index')}}" {!! Request::segment(2) == 'categories' ? 'class="nav-link active"' : 'class="nav-link"' !!}>
+              <i class="nav-icon fas fa-box-tissue"></i>
+              <p>Categorias</p>
+            </a>
+          </li>  
+       
           <li class="nav-header">CONTATOS</li>
 
           <li class="nav-item">
@@ -72,7 +72,7 @@
 
           <li class="nav-header">GERENCIAMENTO</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('users.index')}}" {!! Request::segment(2) == 'users' ? 'class="nav-link active"' : 'class="nav-link"' !!}>
               <i class="nav-icon fas fa-users"></i>
               <p>Usuários</p>
             </a>     

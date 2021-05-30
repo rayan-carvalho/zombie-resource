@@ -35,6 +35,8 @@ class UserValidationFormRequest extends FormRequest
             'district'       =>'required',
             'city'           =>'required',
             'uf'             =>'required|min:2|max:2',
+            'password'       =>'sometimes|required|min:6',
+            
          ];
 
     }
@@ -62,6 +64,7 @@ class UserValidationFormRequest extends FormRequest
                 'uf.required'       => 'O campo "UF" é obrigatório.',
                 'uf.min'            => 'O campo "UF" requer no mínimo 2 caracteres.',
                 'uf.max'            => 'O campo "UF" requer no máximo 2 caracteres.',
+                'uf.password'       => 'O campo "Senha" requer no mínimo 6 caracteres.',
 
         ];
     }

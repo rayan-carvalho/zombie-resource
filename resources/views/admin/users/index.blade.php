@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Clientes"></breadcrumb>
+<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Usuários"></breadcrumb>
 
 <section class="content">
   <div class="container-fluid">
       <div class="row">
-        <page-card title="Lista de Clientes" size="12" url="{{route('clients.create')}}">
-         @if($clients->count() > 0)
+        <page-card title="Lista de Usuários" size="12" url="{{route('users.create')}}">
+         @if($users->count() > 0)
           <table-component
           v-bind:titles="['Código','Nome','Telefone','WhatsApp']"
-          url="http://localhost:8000/app/users/"
+          url="{{Request::url().'/'}}"
           model="Client"
           order = "asc"
-          company_id = "{{$company_id}}"
+          records = "{{ $users }}"
           >
         </table-component>
         @else
@@ -30,5 +30,6 @@
 
 @endsection
 @section('scripts')
+
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 @endsection

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Entrada de Recursos"></breadcrumb>
+<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Saída de Recursos"></breadcrumb>
 
 <section class="content">
   <div class="container-fluid">
       <div class="row">
-        <page-card title="Entrada de Recursos" size="12" url="{{route('stocks.create')}}">
+        <page-card title="Saída de Recursos" size="12" url="{{route('sales.create')}}">
          @if($resources->count() > 0)
             <table class="table table-sm table-striped" id="table"  >
               <thead>
@@ -27,7 +27,7 @@
                     <td>{{ $resource->category }}</a></td>
                     <td>{{ $resource->amount }}</a></td>    
                     <td>
-                      <a class="btn btn-outline-info btn-sm" a href="{{route('stocks.show',$resource->id)}}"  data-toggle="tooltip" data-placement="right" title="Detalhes do Recurso"><i class="fa fa-eye"></i></a>                                   
+                      <a class="btn btn-outline-info btn-sm" a href="{{route('sales.show',$resource->id)}}"  data-toggle="tooltip" data-placement="right" title="Detalhes do Recurso"><i class="fa fa-eye"></i></a>                                   
                     </td>
                   </tr>
              
@@ -37,7 +37,7 @@
         @else
           <div align="center">
             <div class="alert alert-warning" role="alert">
-                Não existem entradas de recursos cadastrados.
+                Não existem saídas de recursos cadastrados.
             </div>
           </div>
         @endif

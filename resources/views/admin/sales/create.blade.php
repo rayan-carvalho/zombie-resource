@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Estoque"></breadcrumb>
+<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Saídas"></breadcrumb>
 
 <section class="content">
     <div class="container-fluid">       
-        <form role="form" method="POST" action="{{ route('stocks.store')}}" >
-            <page-card title="Nova Entrada de Recursos" size="12" >
-            @include('admin.stocks.form')
+        <form role="form" method="POST" action="{{ route('sales.store')}}" >
+            <page-card title="Nova Saída de Recursos" size="12" >
+            @include('admin.sales.form')
             <br>
             <div class="col-md-12">
                 <p><code>Os campos com * são obrigatórios.</code></p>

@@ -22,7 +22,7 @@
                   <td >{{$stock->id}}</td>
                   <td>{{$stock->resource->name}}</td>
                   <td>{{$stock->user->name}}</td>
-                  <td >{{$stock->amount}}</td>
+                  <td >+{{$stock->amount}}</td>
                   <td>{{date('d/m/Y \à\s H:i', strtotime($stock->created_at))}}</td>
                   <td>
                     <a class="btn btn-outline-success" href="{{route('stocks.edit',$stock->id)}}" data-toggle="tooltip" data-placement="right" title="Editar Entrada de Recurso"><i class="fa fa-edit"></i></a>

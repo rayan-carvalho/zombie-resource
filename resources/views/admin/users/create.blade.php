@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Clientes"></breadcrumb>
+<breadcrumb v-bind:list="{{$breadcrumb}}" title = "Usuários"></breadcrumb>
 
 <section class="content">
   <div class="container-fluid">
       <div class="row">
         <page-card title="Novo Cliente" size="12" >
-            <form role="form" method="POST" action="{{ route('clients.store')}}" >
-                @include('admin.clients.form')
+            <form role="form" method="POST" action="{{ route('users.store')}}" >
+                @include('admin.users.form')
                 <p><code>Os campos com * são obrigatórios.</code></p>
                 <div class="modal-footer justify-content">
-                    <a class="btn btn-outline-info" href="{{route('clients.index')}}"><i class="fas fa-arrow-left"></i> Voltar</a>
+                    <a class="btn btn-outline-info" href="{{route('users.index')}}"><i class="fas fa-arrow-left"></i> Voltar</a>
                     <button type="submit" class="btn btn-outline-success" ><i class="fa fa-save"></i> Criar</button>
                 </div>
             </form>

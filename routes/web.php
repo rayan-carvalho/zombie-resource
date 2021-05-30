@@ -13,11 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/', 'Auth\LoginController@login')->name('login');
 
 Auth::routes();
 
@@ -33,6 +32,7 @@ Route::group([
     Route::resource('categories', 'CategoryController');
     Route::resource('sales', 'SaleController');
     Route::resource('stocks', 'StockController');
+    Route::resource('users', 'UserController');
 });
 
 
